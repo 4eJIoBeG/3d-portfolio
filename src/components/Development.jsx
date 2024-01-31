@@ -23,7 +23,7 @@ const Development = () => {
           <Retro />
         </Stage>
 
-        <OrbitControls enableZoom={false} />
+        <OrbitControls enableZoom={false} autoRotate />
       </Canvas>
       <Desc>
         We design products with a strong focus on both world class design and
