@@ -18,29 +18,29 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-{
-  /* Left side components */
-}
+
 const Left = styled.div`
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
-{
-  /* Right side components */
-}
+const Title = styled.h1`
+  font-size: 74px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 60px;
+  }
+`;
+
 const Right = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-`;
-const Title = styled.h1`
-  font-size: 74px;
 `;
 
 const WhatWeDo = styled.div`
