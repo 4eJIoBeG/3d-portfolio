@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import WebDesign from "./WebDesign";
+import Development from "./Development";
+import ProductDesign from "./ProductDesign";
+import Illustration from "./Illustration";
+import SocialMedia from "./SocialMedia";
 
 const data = [
   "Web Design",
@@ -14,6 +19,10 @@ const Section = styled.div`
   scroll-snap-align: center;
   display: flex;
   justify-content: center;
+  color: black;
+  font-size: 14px;
+  font-weight: 300;
+  position: relative;
 `;
 
 const Container = styled.div`
@@ -71,19 +80,39 @@ const Right = styled.div`
 `;
 
 const Works = () => {
+  const [work, setWork] = useState("Web Design");
+
+  const generateModel = () => {
+    switch (work) {
+      case "Web Design":
+        return <WebDesign />;
+      case "Development":
+        return <Development />;
+      case "Illustration":
+        return <Illustration />;
+      case "Product Design":
+        return <ProductDesign />;
+      case "Social Media":
+        return <SocialMedia />;
+
+      default:
+        return <WebDesign />;
+    }
+  };
+
   return (
     <Section>
       <Container>
         <Left>
           <List>
             {data.map((item) => (
-              <ListItem key={item} text={item}>
+              <ListItem key={item} text={item} onClick={() => setWork(item)}>
                 {item}
               </ListItem>
             ))}
           </List>
         </Left>
-        <Right></Right>
+        <Right>{generateModel()}</Right>
       </Container>
     </Section>
   );
